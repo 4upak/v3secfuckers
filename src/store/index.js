@@ -1,7 +1,5 @@
-import { createApp } from 'vue'
 import { createStore } from 'vuex'
 import axios from "axios";
-import router from "@/router";
 
 const store = createStore({
   state: {
@@ -10,6 +8,8 @@ const store = createStore({
     active_from_id: 0,
     active_to_id:0,
     rates_result: [],
+    from_code_selected: null,
+    to_code_selected: null,
 
   },
   mutations: {
@@ -22,7 +22,17 @@ const store = createStore({
       state.currencies_to_data.sort(function(a, b){
         return parseInt(b.rate_to_count) - parseInt(a.rate_to_count)
       })
+    },
+
+    setFromCodeSelected(state, payload){
+      state.from_code_selected = payload
+    },
+
+    setToCodeSelected(state, payload){
+      state.to_code_selected = payload
     }
+
+
 
   },
   actions: {
@@ -31,6 +41,14 @@ const store = createStore({
       axios.get('http://127.0.0.1:8000/digimon/api/currencies/')
         .then(response => context.commit("setCurrenciesLists", response.data))
 
+    },
+    setFromCode(context, code){
+      context.commit("setFromCodeSelected", code)
+      console.log("From selected works")
+    },
+    setToCode(context, code){
+      context.commit("setToCodeSelected", code)
+      console.log("To selected works")
     }
   },
   getters:{

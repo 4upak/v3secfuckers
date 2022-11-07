@@ -3,10 +3,11 @@
     <v-list-subheader>From Currencies</v-list-subheader>
 
     <v-list-item
-      v-for="(item, i) in $store.getters.getCurrenciesToLists"
+      v-for="(item, i) in getCurrenciesToLists"
       :key="i"
       :value="item"
       active-color="primary"
+      @click="this.setToCode(item.code)"
     >
       <v-list-item-title v-text="item.name"></v-list-item-title>
     </v-list-item>
@@ -18,11 +19,19 @@
 </template>
 
 <script>
+
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "ToList",
   data: () => ({
     fromSelectedItem: 0,
   }),
+  computed: {
+    ...mapGetters(["getCurrenciesToLists"]),
+  },
+  methods: {
+    ...mapActions(["setToCode"]),
+  },
 
 }
 </script>
