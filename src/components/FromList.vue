@@ -1,28 +1,26 @@
 <template>
-  <v-list>
-    <v-subheader>From</v-subheader>
-    <v-list-item-group
-        v-model="fromSelectedItem"
-        color="primary"
+  <v-list density="compact">
+    <v-list-subheader>From Currencies</v-list-subheader>
+    <v-list-item
+      v-for="(item, i) in $store.getters.getCurrenciesFromLists"
+      :key="i"
+      :value="item"
+      active-color="primary"
     >
-      <v-list-item
-          v-for="(item, i) in $store.getters.getCurrenciesFromLists"
-          :key="i"
-      >
-
-        <v-list-item-content>
-          <v-list-item-title v-text="item.name+'['+item.code_name+']'"></v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-    </v-list-item-group>
+      <v-list-item-title v-text="item.name"></v-list-item-title>
+    </v-list-item>
   </v-list>
+
+
+
+
 </template>
 
 <script>
 export default {
   name: "FromList",
   data: () => ({
-    fromSelectedItem: 0
+    fromSelectedItem: 0,
   }),
 
 }
