@@ -6,7 +6,7 @@
       :key="i"
       :value="item"
       active-color="primary"
-      @click="this.setFromCode(item.code)"
+      @click="this.setFromCode(item.code_name)"
 
     >
       <v-list-item-title v-text="item.name"></v-list-item-title>

@@ -7,7 +7,7 @@
       :key="i"
       :value="item"
       active-color="primary"
-      @click="this.setToCode(item.code)"
+      @click="this.setToCode(item.code_name)"
     >
       <v-list-item-title v-text="item.name"></v-list-item-title>
     </v-list-item>

@@ -25,10 +25,18 @@ const store = createStore({
 
     setFromCodeSelected(state, payload){
       state.from_code_selected = payload
+      if (state.from_code_selected != null && state.to_code_selected != null) {
+        //redirect to exchange direction page
+        window.location.href = '/exchange-direction/' + state.from_code_selected + '/' + state.to_code_selected + '/'
+      }
     },
 
     setToCodeSelected(state, payload){
       state.to_code_selected = payload
+      if (state.from_code_selected != null && state.to_code_selected != null) {
+        //redirect to exchange direction page
+        window.location.href = '/exchange-direction/' + state.from_code_selected + '/' + state.to_code_selected + '/'
+      }
     },
 
     setRatesResult(state, payload){
@@ -48,10 +56,12 @@ const store = createStore({
     setFromCode(context, code){
       context.commit("setFromCodeSelected", code)
       console.log("From selected works")
+
     },
     setToCode(context, code){
       context.commit("setToCodeSelected", code)
       console.log("To selected works")
+
     },
     fetchRates(context, payload){
       axios.get(`http://127.0.0.1:8000/digimon/api/exchanges/${payload.from_code}/${payload.to_code}/`)
