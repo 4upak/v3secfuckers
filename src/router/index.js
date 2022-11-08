@@ -6,6 +6,7 @@ import ArticlesPage from "@/pages/ArticlesPage";
 import ExchangesPage from "@/pages/ExchangesPage";
 import FaqPage from "@/pages/FaqPage";
 import NewsPage from "@/pages/NewsPage";
+import ExchangeDirectionPage from "@/pages/ExchangeDirectionPage";
 
 const routes = [
   {
@@ -30,13 +31,18 @@ const routes = [
   },
   {
     path: '/exchanges/',
-    name: 'ExchangesPage',
+    name: 'ExchangePage',
     component: ExchangesPage
   },
   {
     path: '/news/',
     name: 'NewsPage',
     component: NewsPage
+  },
+  {
+    path: '/exchange-direction/:from_code/:to_code/',
+    name: 'ExchangePage',
+    component: ExchangeDirectionPage
   }
 ]
 

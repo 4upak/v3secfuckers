@@ -10,7 +10,6 @@ const store = createStore({
     rates_result: [],
     from_code_selected: null,
     to_code_selected: null,
-
   },
   mutations: {
     setCurrenciesLists(state, payloads){
@@ -30,6 +29,10 @@ const store = createStore({
 
     setToCodeSelected(state, payload){
       state.to_code_selected = payload
+    },
+
+    setRatesResult(state, payload){
+      state.rates_result = payload
     }
 
 
@@ -49,7 +52,12 @@ const store = createStore({
     setToCode(context, code){
       context.commit("setToCodeSelected", code)
       console.log("To selected works")
-    }
+    },
+    fetchRates(context, payload){
+      axios.get(`http://127.0.0.1:8000/digimon/api/exchanges/${payload.from_code}/${payload.to_code}/`)
+        .then(response => context.commit("setRatesResult", response.data))
+
+    },
   },
   getters:{
     getCurrenciesFromLists(state){

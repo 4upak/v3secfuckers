@@ -3,12 +3,12 @@
   <v-card>
     <v-tabs
       v-model="tab"
-      bg-color="primary"
+      bg-color="white"
     >
       <v-tab value="one">
         <v-icon
           size="large"
-          color="white"
+          color="grey"
           class="mx-2"
         >
           mdi-view-quilt
@@ -18,7 +18,7 @@
       <v-tab value="two">
         <v-icon
           size="large"
-          color="white"
+          color="grey"
           class="mx-2"
         >
           mdi-view-list
@@ -27,8 +27,7 @@
       <v-tab value="three">
         <v-icon
           size="large"
-          color="white"
-          padding="10"
+          color="grey"
           class="mx-2"
         >
           mdi-thumb-up
