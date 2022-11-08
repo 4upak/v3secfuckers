@@ -16,6 +16,7 @@
           <v-responsive >
             <v-card-text>
               {{from_direction}} - {{to_direction}}
+              <rates-table />
             </v-card-text>
           </v-responsive>
         </v-card>
@@ -32,11 +33,13 @@
 <script>
 
 import LeftBar  from "@/components/LeftBar";
+import RatesTable from "@/components/RatesTable";
 
 export default {
   name: "MainPage",
   components: {
     'left-bar': LeftBar,
+    'rates-table': RatesTable,
   },
   data () {
     return {

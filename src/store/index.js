@@ -65,6 +65,9 @@ const store = createStore({
     },
     getCurrenciesToLists(state){
       return state.currencies_to_data
+    },
+    getRatesResult(state){
+      return state.rates_result
     }
 
   }
