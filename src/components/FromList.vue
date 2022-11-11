@@ -1,18 +1,25 @@
 <template>
-  <v-list density="compact">
-    <v-list-subheader>From Currencies</v-list-subheader>
-    <v-list-item
+
+  <v-card
       v-for="(item, i) in getCurrenciesFromLists"
       :key="i"
-      :value="item"
-      active-color="primary"
-      @click="this.setFromCode(item.code_name)"
+  >
+    <v-card-title>
+      {{ item.name }}
+    </v-card-title>
+    <v-list density="compact">
+      <v-list-item
+        v-for="(currency, i) in item.tag_currencies"
+        :key="i"
+        :value="currency"
+        active-color="primary"
+        @click="this.setFromCode(currency.code_name)"
+      >
+        <v-list-item-title v-text="currency.name"></v-list-item-title>
+      </v-list-item>
+    </v-list>
 
-    >
-      <v-list-item-title v-text="item.name"></v-list-item-title>
-    </v-list-item>
-  </v-list>
-
+  </v-card>
 
 
 

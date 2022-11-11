@@ -49,7 +49,7 @@ const store = createStore({
   actions: {
     fetchCurrenciesLists(context){
 
-      axios.get('http://127.0.0.1:8000/digimon/api/currencies/')
+      axios.get('http://127.0.0.1:8000/digimon/api/cryptotags/')
         .then(response => context.commit("setCurrenciesLists", response.data))
 
     },
