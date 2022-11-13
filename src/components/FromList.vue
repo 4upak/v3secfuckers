@@ -10,7 +10,6 @@
     v-for="(item, i) in getCurrenciesFromLists"
   >
     <v-card
-
         :key="i"
         v-if="getCurrenciesFromLists.length > 0 && item.active == true"
     >
