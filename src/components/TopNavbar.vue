@@ -1,12 +1,17 @@
 <template>
-  <v-container fluid>
-    <v-app-bar
-        color="#fff"
-    >
+  <v-card
+    color="grey-lighten-4"
+    flat
+    height="50px"
+    rounded="0"
+  >
+    <v-toolbar density="compact">
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+
+      <v-toolbar-title>WhitEXchangers</v-toolbar-title>
+
       <v-tabs
-          align-with-title
-          color="#6e6d73"
-          class="mt-3"
+        align-with-title
       >
         <v-tab><router-link to="/">Home</router-link></v-tab>
         <v-tab><router-link to="/news/">News</router-link></v-tab>
@@ -16,9 +21,8 @@
         <v-tab><router-link to="/contacts/">Contacts</router-link></v-tab>
       </v-tabs>
 
-    </v-app-bar>
-
-  </v-container>
+    </v-toolbar>
+  </v-card>
 </template>
 
 <script>
