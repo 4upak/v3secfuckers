@@ -50,6 +50,22 @@ const store = createStore({
     },
     setTopExchangers(state, payload){
       state.top_exchangers = payload
+    },
+    searchingFrom(state, payload){
+      for (var i = 0; i < state.currencies_from_data.length; i++) {
+
+        for (var j = 0; j < state.currencies_from_data[i].tag_currencies.length; j++) {
+
+          if (!state.currencies_from_data[i].tag_currencies[j].name.toLowerCase().includes(payload.toLowerCase())) {
+            console.log(state.currencies_from_data[i].tag_currencies[j].name)
+            state.currencies_from_data[i].tag_currencies[j].active = false
+          }
+          else{
+            state.currencies_from_data[i].tag_currencies[j].active = true
+          }
+        }
+
+      }
     }
 
 
@@ -80,7 +96,12 @@ const store = createStore({
     fetchTopExchangers(context){
       axios.get('http://127.0.0.1:8000/digimon/api/exchanges/')
         .then(response => context.commit("setTopExchangers", response.data))
+    },
+    searchFrom(state, payload){
+      console.log('searchFrom', payload)
+      state.commit('searchingFrom', payload)
     }
+
   },
   getters:{
     getCurrenciesFromLists(state){

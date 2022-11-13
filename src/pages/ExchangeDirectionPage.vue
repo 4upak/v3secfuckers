@@ -2,7 +2,7 @@
 
   <v-container class="lighten-5">
     <!-- title -->
-    <h1 class="text-center">{{ name }}</h1>
+    <h1 class="text-center">{{from_direction}} - {{to_direction}}</h1>
     <!-- 3 rows of articles -->
     <v-row
       class="mt-5"
@@ -15,7 +15,7 @@
         <v-card>
           <v-responsive >
             <v-card-text>
-              {{from_direction}} - {{to_direction}}
+
               <rates-table />
             </v-card-text>
           </v-responsive>

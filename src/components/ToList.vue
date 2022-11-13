@@ -1,6 +1,11 @@
 <template>
 
+  <v-text-field
+    label="To currency"
 
+  >
+
+  </v-text-field>
   <v-card
     v-for="(item, i) in getCurrenciesToLists"
     :key="i"
