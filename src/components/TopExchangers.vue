@@ -1,9 +1,11 @@
 <template>
   <div>
+
     <v-card
       v-for="(exchanger, i) in getTopExchangers"
       :key="i"
       style="margin-bottom: 50px"
+      v-if="getTopExchangers.length > 0"
 
     >
       <v-card-title>
@@ -43,6 +45,11 @@
       </v-table>
 
     </v-card>
+
+    <v-progress-linear
+      v-else
+      indeterminate
+      color="yellow-darken-2" />
 
   </div>
 </template>

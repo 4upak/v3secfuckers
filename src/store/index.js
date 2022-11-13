@@ -14,6 +14,9 @@ const store = createStore({
   },
   mutations: {
     setCurrenciesLists(state, payloads){
+      var temp = payloads[0]
+      payloads[0] = payloads[1]
+      payloads[1] = temp
       state.currencies_from_data = payloads
       state.currencies_to_data = Object.assign([], payloads)
       state.currencies_from_data.sort(function(a, b){
@@ -26,6 +29,7 @@ const store = createStore({
 
     setFromCodeSelected(state, payload){
       state.from_code_selected = payload
+      console.log('setFromCodeSelected', payload)
       if (state.from_code_selected != null && state.to_code_selected != null) {
         //redirect to exchange direction page
         window.location.href = '/exchange-direction/' + state.from_code_selected + '/' + state.to_code_selected + '/'
@@ -34,6 +38,7 @@ const store = createStore({
 
     setToCodeSelected(state, payload){
       state.to_code_selected = payload
+      console.log('setToCodeSelected', payload)
       if (state.from_code_selected != null && state.to_code_selected != null) {
         //redirect to exchange direction page
         window.location.href = '/exchange-direction/' + state.from_code_selected + '/' + state.to_code_selected + '/'

@@ -1,5 +1,7 @@
 <template>
-  <v-table>
+
+
+  <v-table v-if="getRatesResult.length > 0">
     <thead>
     <tr>
       <th class="text-left">
@@ -31,6 +33,11 @@
     </tr>
     </tbody>
   </v-table>
+  <v-progress-linear
+    v-else
+    indeterminate
+    color="blue"
+  ></v-progress-linear>
 </template>
 
 <script>

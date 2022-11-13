@@ -4,6 +4,7 @@
   <v-card
     v-for="(item, i) in getCurrenciesToLists"
     :key="i"
+    v-if="getCurrenciesToLists.length > 0"
   >
     <v-card-title>
       {{ item.name }}
@@ -21,6 +22,11 @@
     </v-list>
 
   </v-card>
+  <v-progress-linear
+    v-else
+    indeterminate
+    color="blue"
+  ></v-progress-linear>
 
 
 
