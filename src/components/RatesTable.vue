@@ -36,7 +36,7 @@
   <v-progress-linear
     v-else
     indeterminate
-    color="blue"
+    color="primary"
   ></v-progress-linear>
 </template>
 

@@ -49,7 +49,7 @@
     <v-progress-linear
       v-else
       indeterminate
-      color="yellow-darken-2" />
+      color="primary" />
 
   </div>
 </template>

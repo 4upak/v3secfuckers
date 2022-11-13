@@ -22,12 +22,12 @@
     </v-list>
 
   </v-card>
-  <v-progress-linear
+
+  <v-progress-circular
     v-else
     indeterminate
-    color="blue"
-  ></v-progress-linear>
-
+    color="primary"
+  ></v-progress-circular>
 
 
 
