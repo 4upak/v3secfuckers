@@ -18,13 +18,10 @@ const store = createStore({
       payloads[0] = payloads[1]
       payloads[1] = temp
       state.currencies_from_data = payloads
-      state.currencies_to_data = Object.assign([], payloads)
-      state.currencies_from_data.sort(function(a, b){
-        return parseInt(b.rate_from_count) - parseInt(a.rate_from_count)
-      })
-      state.currencies_to_data.sort(function(a, b){
-        return parseInt(b.rate_to_count) - parseInt(a.rate_to_count)
-      })
+      state.currencies_to_data = JSON.parse(JSON.stringify(payloads))
+
+
+
     },
 
     setFromCodeSelected(state, payload){
@@ -108,6 +105,7 @@ const store = createStore({
           state.currencies_to_data[i].active = false
         }
       }
+
 
     }
 
