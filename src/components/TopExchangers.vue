@@ -17,6 +17,7 @@
       <v-table>
         <thead>
         <tr>
+          <th>Direction</th>
           <th class="text-left">
             Give
           </th>
@@ -33,12 +34,14 @@
         <tr
           v-for="item in exchanger.popular_rates"
           :key="item.id"
+
         >
-          <td>{{ item.from_rate}} <span class="from_currency">{{item.from_currency_name}}</span><br>
-            <span class="min"><b>Min:</b> {{item.min}}</span>&nbsp;<span class="max"><b>Max:</b> {{item.max}}</span>
+          <td v-if="item.from_currency_name != item.to_currency_name">{{ item.from_currency_name }} -> {{ item.to_currency_name }}</td>
+          <td v-if="item.from_currency_name != item.to_currency_name">{{ item.from_rate}}<br>
+            <span class="min"><b>Min:</b> {{item.min}}</span><br><span class="max"><b>Max:</b> {{item.max}}</span>
           </td>
-          <td>{{ item.to_rate}} <span class="to_currency">{{item.to_currency_name}}</span></td>
-          <td>{{ item.reserve}}</td>
+          <td v-if="item.from_currency_name != item.to_currency_name">{{ item.to_rate}}</td>
+          <td v-if="item.from_currency_name != item.to_currency_name">{{ item.reserve}}</td>
         </tr>
 
         </tbody>
@@ -73,10 +76,6 @@ export default {
 </script>
 
 <style scoped>
-span.from_currency, span.to_currency{
-  font-size: 12px;
-  color: #888888;
-}
 span.min, span.max{
   font-size: 12px;
   color: #888888;
