@@ -79,6 +79,36 @@ const store = createStore({
         }
       }
 
+    },
+
+    searchingTo(state, payload){
+      for (var i = 0; i < state.currencies_to_data.length; i++) {
+
+        for (var j = 0; j < state.currencies_to_data[i].tag_currencies.length; j++) {
+          if (!state.currencies_to_data[i].tag_currencies[j].name.toLowerCase().includes(payload.toLowerCase())) {
+            state.currencies_to_data[i].tag_currencies[j].active = false
+          }
+          else{
+            state.currencies_to_data[i].tag_currencies[j].active = true
+          }
+        }
+      }
+
+      for (var i = 0; i < state.currencies_to_data.length; i++) {
+        var flag = 0
+        for (var j = 0; j < state.currencies_to_data[i].tag_currencies.length; j++) {
+          if (state.currencies_to_data[i].tag_currencies[j].active==true) {
+            flag = 1
+          }
+        }
+        if (flag == 1) {
+          state.currencies_to_data[i].active = true
+        }
+        else{
+          state.currencies_to_data[i].active = false
+        }
+      }
+
     }
 
 
@@ -113,6 +143,10 @@ const store = createStore({
     searchFrom(state, payload){
       console.log('searchFrom', payload)
       state.commit('searchingFrom', payload)
+    },
+    searchTo(state, payload){
+      console.log('searchTo', payload)
+      state.commit('searchingTo', payload)
     }
 
   },

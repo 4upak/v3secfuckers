@@ -2,37 +2,38 @@
 
   <v-text-field
     label="To currency"
+    v-model="ToSearchItem"
+    @input="searchTo"
 
   >
 
   </v-text-field>
-  <v-card
+  <template
     v-for="(item, i) in getCurrenciesToLists"
-    :key="i"
-    v-if="getCurrenciesToLists.length > 0"
   >
-    <v-card-title>
-      {{ item.name }}
-    </v-card-title>
-    <v-list density="compact">
-      <v-list-item
-        v-for="(currency, i) in item.tag_currencies"
-        :key="i"
-        :value="currency"
-        active-color="primary"
-        @click="this.setToCode(currency.code_name)"
-      >
-        <v-list-item-title v-text="currency.name"></v-list-item-title>
-      </v-list-item>
-    </v-list>
+    <v-card
+      :key="i"
+      v-if="getCurrenciesToLists.length > 0 && item.active == true"
+    >
+      <v-card-title>
+        {{ item.name }}
+      </v-card-title>
+      <v-list density="compact">
+        <template v-for="(currency, j) in item.tag_currencies">
+          <v-list-item
+            :key="j"
+            :value="currency"
+            active-color="primary"
+            @click="this.setToCode(currency.code_name)"
+            v-if = "currency.active == true"
+          >
+            <v-list-item-title v-text="currency.name"></v-list-item-title>
+          </v-list-item>
+        </template>
+      </v-list>
 
-  </v-card>
-
-  <v-progress-circular
-    v-else
-    indeterminate
-    color="primary"
-  ></v-progress-circular>
+    </v-card>
+  </template>
 
 
 
@@ -51,6 +52,9 @@ export default {
   },
   methods: {
     ...mapActions(["setToCode"]),
+    searchTo() {
+      this.$store.dispatch("searchTo", this.ToSearchItem);
+    },
   },
 
 }
