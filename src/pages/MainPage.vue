@@ -12,13 +12,9 @@
         <left-bar />
       </v-col>
       <v-col cols="12" md="7">
-        <v-card>
           <v-responsive >
-            <v-card-text>
-              This card will always be 16:9 (unless you put more stuff in it)
-            </v-card-text>
+            <top-exchangers />
           </v-responsive>
-        </v-card>
       </v-col>
 
 
@@ -32,11 +28,13 @@
 <script>
 
 import LeftBar  from "@/components/LeftBar";
+import TopExchangers from "@/components/TopExchangers";
 
 export default {
   name: "MainPage",
   components: {
     'left-bar': LeftBar,
+    'top-exchangers': TopExchangers
 
 
   },

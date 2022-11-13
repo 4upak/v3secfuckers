@@ -8,6 +8,7 @@ const store = createStore({
     active_from_id: 0,
     active_to_id:0,
     rates_result: [],
+    top_exchangers: [],
     from_code_selected: null,
     to_code_selected: null,
   },
@@ -41,6 +42,9 @@ const store = createStore({
 
     setRatesResult(state, payload){
       state.rates_result = payload
+    },
+    setTopExchangers(state, payload){
+      state.top_exchangers = payload
     }
 
 
@@ -68,6 +72,10 @@ const store = createStore({
         .then(response => context.commit("setRatesResult", response.data))
 
     },
+    fetchTopExchangers(context){
+      axios.get('http://127.0.0.1:8000/digimon/api/exchanges/')
+        .then(response => context.commit("setTopExchangers", response.data))
+    }
   },
   getters:{
     getCurrenciesFromLists(state){
@@ -78,6 +86,9 @@ const store = createStore({
     },
     getRatesResult(state){
       return state.rates_result
+    },
+    getTopExchangers(state){
+      return state.top_exchangers
     }
 
   }
