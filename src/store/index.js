@@ -55,17 +55,30 @@ const store = createStore({
       for (var i = 0; i < state.currencies_from_data.length; i++) {
 
         for (var j = 0; j < state.currencies_from_data[i].tag_currencies.length; j++) {
-
           if (!state.currencies_from_data[i].tag_currencies[j].name.toLowerCase().includes(payload.toLowerCase())) {
-            console.log(state.currencies_from_data[i].tag_currencies[j].name)
             state.currencies_from_data[i].tag_currencies[j].active = false
           }
           else{
             state.currencies_from_data[i].tag_currencies[j].active = true
           }
         }
-
       }
+
+      for (var i = 0; i < state.currencies_from_data.length; i++) {
+        var flag = 0
+        for (var j = 0; j < state.currencies_from_data[i].tag_currencies.length; j++) {
+          if (state.currencies_from_data[i].tag_currencies[j].active==true) {
+            flag = 1
+          }
+        }
+        if (flag == 1) {
+          state.currencies_from_data[i].active = true
+        }
+        else{
+          state.currencies_from_data[i].active = false
+        }
+      }
+
     }
 
 

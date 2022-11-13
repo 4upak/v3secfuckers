@@ -6,41 +6,42 @@
   >
 
   </v-text-field>
-
-  <v-card
-      v-for="(item, i) in getCurrenciesFromLists"
-      :key="i"
-      v-if="getCurrenciesFromLists.length > 0"
+  <template
+    v-for="(item, i) in getCurrenciesFromLists"
   >
-    <v-card-title
+    <v-card
+
+        :key="i"
+        v-if="getCurrenciesFromLists.length > 0 && item.active == true"
     >
-      {{ item.name }}
-    </v-card-title>
-    <v-list density="compact">
-      <template v-for="(currency, i) in item.tag_currencies">
-        <v-list-item
-          :key="i"
-          :value="currency"
-          active-color="primary"
-          @click="this.setFromCode(currency.code_name)"
-          v-if = "currency.active == true"
-        >
-          <v-list-item-title v-text="currency.name"
-
+      <v-card-title
+      >
+        {{ item.name }}
+      </v-card-title>
+      <v-list density="compact">
+        <template v-for="(currency, j) in item.tag_currencies">
+          <v-list-item
+            :key="j"
+            :value="currency"
+            active-color="primary"
+            @click="this.setFromCode(currency.code_name)"
+            v-if = "currency.active == true"
           >
+            <v-list-item-title v-text="currency.name"
 
-          </v-list-item-title>
+            >
 
-        </v-list-item>
-      </template>
-    </v-list>
+            </v-list-item-title>
 
-  </v-card>
-  <v-progress-circular
-    v-else
-    indeterminate
-    color="primary"
-  ></v-progress-circular>
+          </v-list-item>
+        </template>
+      </v-list>
+
+    </v-card>
+
+  </template>
+
+
 
 
 
