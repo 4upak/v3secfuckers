@@ -29,7 +29,7 @@ const store = createStore({
       console.log('setFromCodeSelected', payload)
       if (state.from_code_selected != null && state.to_code_selected != null) {
         //redirect to exchange direction page
-        window.location.href = '/exchange-direction/' + state.from_code_selected + '/' + state.to_code_selected + '/'
+        window.location.href = '/rate/' + state.from_code_selected + '/' + state.to_code_selected + '/'
       }
     },
 
@@ -38,7 +38,7 @@ const store = createStore({
       console.log('setToCodeSelected', payload)
       if (state.from_code_selected != null && state.to_code_selected != null) {
         //redirect to exchange direction page
-        window.location.href = '/exchange-direction/' + state.from_code_selected + '/' + state.to_code_selected + '/'
+        window.location.href = '/rate/' + state.from_code_selected + '/' + state.to_code_selected + '/'
       }
     },
 
@@ -115,7 +115,7 @@ const store = createStore({
   actions: {
     fetchCurrenciesLists(context){
 
-      axios.get('http://127.0.0.1:8000/digimon/api/cryptotags/')
+      axios.get('https://services.digichanger.pro/digimon/api/cryptotags/')
         .then(response => context.commit("setCurrenciesLists", response.data))
 
     },
@@ -130,12 +130,12 @@ const store = createStore({
 
     },
     fetchRates(context, payload){
-      axios.get(`http://127.0.0.1:8000/digimon/api/exchanges/${payload.from_code}/${payload.to_code}/`)
+      axios.get(`https://services.digichanger.pro/digimon/api/exchanges/${payload.from_code}/${payload.to_code}/`)
         .then(response => context.commit("setRatesResult", response.data))
 
     },
     fetchTopExchangers(context){
-      axios.get('http://127.0.0.1:8000/digimon/api/exchanges/')
+      axios.get('https://services.digichanger.pro/digimon/api/exchanges/')
         .then(response => context.commit("setTopExchangers", response.data))
     },
     searchFrom(state, payload){

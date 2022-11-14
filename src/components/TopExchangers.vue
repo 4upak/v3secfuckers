@@ -12,7 +12,7 @@
         {{ exchanger.name }}
       </v-card-title>
       <v-card-subtitle>
-        Number of exchange directions: {{ exchanger.rates }}
+        Rates: {{ exchanger.rates }}
       </v-card-subtitle>
       <v-table>
         <thead>

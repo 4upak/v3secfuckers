@@ -40,7 +40,7 @@ const routes = [
     component: NewsPage
   },
   {
-    path: '/exchange-direction/:from_code/:to_code/',
+    path: '/rate/:from_code/:to_code/',
     name: 'ExchangePage',
     component: ExchangeDirectionPage
   }

@@ -29,13 +29,7 @@ a:link, a:visited {
 a:hover{
     color: #4070f4;
 }
-header.v-toolbar a {
-    color: #6e6d73;
-    font-weight: 400;
-    font-size: 15px;
-    text-transform: none;
-    text-decoration: none;
-}
+
 .main_page_subtitle{
     color: #72819f;
     font-size: 18px;

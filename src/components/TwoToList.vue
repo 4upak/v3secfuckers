@@ -1,23 +1,20 @@
 <template>
-
   <v-text-field
     label="To currency"
     v-model="ToSearchItem"
     @input="searchTo"
 
   >
-
   </v-text-field>
   <template
     v-for="(item, i) in getCurrenciesToLists"
+    v-if="ToSearchItem.length > 0"
+
   >
-    <v-card
+    <template
       :key="i"
       v-if="getCurrenciesToLists.length > 0 && item.active == true"
     >
-      <v-card-title>
-        {{ item.name }}
-      </v-card-title>
       <v-list density="compact">
         <template v-for="(currency, j) in item.tag_currencies">
           <v-list-item
@@ -32,7 +29,7 @@
         </template>
       </v-list>
 
-    </v-card>
+    </template>
   </template>
 
 

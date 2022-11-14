@@ -1,22 +1,20 @@
 <template>
   <v-text-field
-    label="From currency"
+    label="To currency"
     v-model="FromSearchItem"
     @input="searchFrom"
-  >
 
+  >
   </v-text-field>
   <template
     v-for="(item, i) in getCurrenciesFromLists"
+    v-if="FromSearchItem.length > 0"
+
   >
-    <v-card
-        :key="i"
-        v-if="getCurrenciesFromLists.length > 0 && item.active == true"
+    <template
+      :key="i"
+      v-if="getCurrenciesFromLists.length > 0 && item.active == true"
     >
-      <v-card-title
-      >
-        {{ item.name }}
-      </v-card-title>
       <v-list density="compact">
         <template v-for="(currency, j) in item.tag_currencies">
           <v-list-item
@@ -26,37 +24,27 @@
             @click="this.setFromCode(currency.code_name)"
             v-if = "currency.active == true"
           >
-            <v-list-item-title v-text="currency.name"
-
-            >
-
-            </v-list-item-title>
-
+            <v-list-item-title v-text="currency.name"></v-list-item-title>
           </v-list-item>
         </template>
       </v-list>
 
-    </v-card>
-
+    </template>
   </template>
-
-
-
 
 
 
 </template>
 
 <script>
+
 import { mapActions, mapGetters } from "vuex";
 export default {
-  name: "FromList",
-
+  name: "ToList",
   data: () => ({
     fromSelectedItem: 0,
     FromSearchItem: "",
   }),
-
   computed: {
     ...mapGetters(["getCurrenciesFromLists"]),
   },

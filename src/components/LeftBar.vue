@@ -3,7 +3,8 @@
   <v-card>
     <v-tabs
       v-model="tab"
-      bg-color="white"
+      bg-color="#f7fafc"
+      height="60px"
     >
       <v-tab value="one">
         <v-icon
@@ -51,7 +52,15 @@
         </v-window-item>
 
         <v-window-item value="two">
-
+          <v-row
+            class="mt-5">
+            <v-col cols="12" md="6">
+              <two-from-list />
+            </v-col>
+            <v-col cols="12" md="6">
+              <two-to-list />
+            </v-col>
+          </v-row>
         </v-window-item>
 
         <v-window-item value="three">
@@ -68,11 +77,17 @@
 import FromList from "@/components/FromList";
 import ToList from "@/components/ToList";
 
+import TwoFromList from "@/components/TwoFromList";
+import TwoToList from "@/components/TwoToList";
+
+
 export default {
   name: "LeftBar",
   components: {
     "from-list" : FromList,
     "to-list" : ToList,
+    "two-from-list" : TwoFromList,
+    "two-to-list" : TwoToList,
 
   },
   data: () => ({
