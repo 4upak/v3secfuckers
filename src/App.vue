@@ -1,4 +1,3 @@
-
 <template>
   <v-app>
     <v-main>
@@ -23,4 +22,7 @@
     }
   }
 </script>
+<style>
+@import './assets/css/style.css';
+</style>
 

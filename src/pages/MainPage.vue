@@ -2,8 +2,9 @@
 
   <v-container class="lighten-5">
     <!-- title -->
-        <h1 class="text-center">{{ name }}</h1>
+        <h1 class="text-center">White <span class="blue_span">Exchangers</span> monitoring</h1>
     <!-- 3 rows of articles -->
+    <h3 class="main_page_subtitle">Our Service helps to make exchanges safely and quickly</h3>
     <v-row
         class="mt-5"
 
@@ -31,7 +32,6 @@ import LeftBar  from "@/components/LeftBar";
 import TopExchangers from "@/components/TopExchangers";
 
 export default {
-  name: "MainPage",
   components: {
     'left-bar': LeftBar,
     'top-exchangers': TopExchangers
@@ -43,7 +43,7 @@ export default {
 
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
 
-      name: 'Currency Converter',
+      name: 'White Exchangers monitoring',
     }
   },
   mounted() {
@@ -56,7 +56,6 @@ export default {
 <style scoped>
 .text-center {
   text-align: center;
-  color:#4070f4
 }
 
 </style>
