@@ -2,9 +2,13 @@
   <v-container  fluid>
     <v-footer
         color="white"
-        app
-    >
 
+    >
+      <v-container
+        fluid
+        class="d-flex mdi-format-align-right top_toolbar-container"
+      >
+        <v-toolbar-title>© Copyright 2022</v-toolbar-title>
         <v-tabs
             align-with-title
             color="#6e6d73"
@@ -16,6 +20,9 @@
           <v-tab><router-link to="/faq/">F.A.Q</router-link></v-tab>
           <v-tab><router-link to="/contacts/">Contacts</router-link></v-tab>
         </v-tabs>
+      </v-container>
+
+
     </v-footer>
   </v-container>
 </template>

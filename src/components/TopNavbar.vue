@@ -10,7 +10,7 @@
         class="d-flex align-center top_toolbar-container"
         >
 
-        <v-app-bar-nav-icon></v-app-bar-nav-icon>
+
 
         <v-toolbar-title>WhitEXchangers</v-toolbar-title>
 
