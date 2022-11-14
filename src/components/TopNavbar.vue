@@ -25,6 +25,20 @@
           <v-tab><router-link to="/faq/">F.A.Q</router-link></v-tab>
           <v-tab><router-link to="/contacts/">Contacts</router-link></v-tab>
         </v-tabs>
+        <v-btn
+          variant="outlined"
+          color="primary"
+          class="ml-10"
+        >
+          Login
+        </v-btn>
+        <v-btn
+          variant="outlined"
+          color="green"
+          class="ml-3"
+        >
+          Create account
+        </v-btn>
       </v-container>
 
 
