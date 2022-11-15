@@ -14,7 +14,7 @@ import { createApp } from '../node_modules/vue'
 
 // Plugins
 import { registerPlugins } from '@/plugins'
-import vuetify from 'plugins/vuetify'
+import vuetify from './plugins/vuetify'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
