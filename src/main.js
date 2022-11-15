@@ -10,13 +10,13 @@ import router from './router'
 import store from './store'
 
 // Composables
-import { createApp } from '../node_modules/vue'
+import { createApp } from 'vue'
 
 // Plugins
-import { registerPlugins } from '../src/plugins/'
-import vuetify from '../src/plugins/vuetify'
-import axios from '../node_modules/axios'
-import VueAxios from '../node_modules/vue-axios'
+import { registerPlugins } from '@/plugins'
+import vuetify from './plugins/vuetify'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 const app = createApp(App)
 
