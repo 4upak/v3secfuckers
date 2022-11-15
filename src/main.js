@@ -13,8 +13,8 @@ import store from './store'
 import { createApp } from '../node_modules/vue'
 
 // Plugins
-import { registerPlugins } from './plugins/'
-import vuetify from './plugins/vuetify'
+import { registerPlugins } from '../src/plugins/'
+import vuetify from '../src/plugins/vuetify'
 import axios from '../node_modules/axios'
 import VueAxios from '../node_modules/vue-axios'
 
