@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: '/v3secfuckers/',
+  publicPath: '/public/',
   devServer: {
     port:3001,
   }
