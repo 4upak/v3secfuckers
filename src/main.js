@@ -10,7 +10,7 @@ import router from './router'
 import store from './store'
 
 // Composables
-import { createApp } from '../node/modules/vue'
+import { createApp } from '../node_modules/vue'
 
 // Plugins
 import { registerPlugins } from '@/plugins'
