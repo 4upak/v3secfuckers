@@ -33,5 +33,5 @@ export default defineConfig({
   server: {
     port: 3001,
   },
-  publicPath: '/public/',
+  publicPath: '../public/',
 })
